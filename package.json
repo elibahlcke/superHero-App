@@ -4,8 +4,10 @@
   "description": "react + webpack + sass",
   "main": "index.js",
   "scripts": {
-    "dev": "webpack serve --mode development --open chrome --devtool eval-cheap-module-source-map",
-    "build": "webpack"
+    "start": "react-dotenv && react-scripts start",
+    "serve": "react-dotenv && serve build",
+    "dev": "react-dotenv && webpack serve --mode development --open chrome --devtool eval-cheap-module-source-map",
+    "build": "react-dotenv && webpack"
   },
   "author": "eliana lopez bahlcke",
   "license": "MIT",
@@ -15,6 +17,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^5.0.2",
     "core-js": "^3.14.0",
+    "dotenv": "^10.0.0",
     "formik": "^2.2.9",
     "react": "^17.0.2",
     "react-bootstrap": "^1.6.1",
@@ -33,6 +36,7 @@
     "clean-webpack-plugin": "^4.0.0-alpha.0",
     "css-loader": "^5.2.6",
     "csv-loader": "^3.0.3",
+    "dotenv-webpack": "^7.0.3",
     "file-loader": "^6.2.0",
     "html-webpack-plugin": "^5.3.1",
     "json5": "^2.2.0",
@@ -46,5 +50,10 @@
     "webpack-dev-server": "^3.11.2",
     "xml-loader": "^1.2.1",
     "yamljs": "^0.3.0"
+  },
+  "react-dotenv": {
+    "whitelist": [
+      "API_URL"
+    ]
   }
 }

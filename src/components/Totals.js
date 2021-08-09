@@ -30,7 +30,6 @@ const Totals = ({ team }) => {
         teamAverage.push(temp[i])
     };
         return teamAverage})
-        console.log(teamAverage)
         for(let i =0; i<array.length;i++){
             let sumWk = weightKg || 0;
             let sumHc = heightCm || 0;
@@ -45,7 +44,6 @@ const Totals = ({ team }) => {
          arraySum.push(heightCm, weightKg)
             setSumHeight(() => arraySum)
 
-         console.log(teamAverage)
         
     }, [])
     return (  
