@@ -4,7 +4,7 @@ import CardBack from './CardBack'
 import ReactCardFlip from 'react-card-flip';
 
 
-const Cards = ({heroe, display, }) => {
+const Cards = ({heroe, display, id }) => {
 const [flip, isFlipped] = useState(true);
     return ( 
         <ReactCardFlip isFlipped={!flip} flipDirection='horizontal'>
@@ -14,6 +14,7 @@ const [flip, isFlipped] = useState(true);
                 powerstats={heroe[0].powerstats}
                 id={heroe[0].id}
                 isFlipped={isFlipped}
+                index={id}
 
             />
             <CardBack 

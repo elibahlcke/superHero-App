@@ -4,11 +4,10 @@ import { Button, ListGroup, ListGroupItem } from 'react-bootstrap';
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
 
-const FrontCard = ({ name, image, powerstats, id, isFlipped, key}) => {
-    function deleteChar(number) {
+const FrontCard = ({ name, image, powerstats, id, isFlipped, index}) => {
+    function deleteChar() {
         let team = JSON.parse(localStorage.getItem('myTeam'));
-        let num = team.indexOf(key);
-        team.splice(num, 1);
+        team.splice(index, 1);
 
         team.map((item, index) => {
             if(item.length === 0){
@@ -19,7 +18,7 @@ const FrontCard = ({ name, image, powerstats, id, isFlipped, key}) => {
             localStorage.removeItem('myTeam');
         } else {localStorage.setItem('myTeam', JSON.stringify(team));}
         window.location.reload();
-        console.log(team)
+        console.log(key)
     }
 
     return ( 
@@ -49,7 +48,7 @@ const FrontCard = ({ name, image, powerstats, id, isFlipped, key}) => {
                 </ListGroupItem>
             </ListGroup>
             <Card.Body>
-            <Button variant="dark" onClick={deleteChar} >DELETE</Button>
+            <Button variant="dark" onClick={()=> deleteChar()} >DELETE</Button>
             <Button variant="dark" style={{marginLeft: '10px'}} onClick={() => isFlipped(false)}>DETAILS</Button>
             </Card.Body>
         </Card>

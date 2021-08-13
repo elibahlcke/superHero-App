@@ -27,8 +27,8 @@ const Team = () => {
             {showTeam ? (myTeam.map((item, index) => {
                     
 return (
-                <div className='column is-3' key={item} style={{ margin: '10px'}}>
-                  <Card heroe={item} key={index} />
+                <div className='column is-3' key={index}  style={{ margin: '10px'}}>
+                  <Card heroe={item} id={index} />
                 </div>
               );
             })) : null}

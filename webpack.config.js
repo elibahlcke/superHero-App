@@ -4,7 +4,6 @@ const json5 = require('json5')
 const path = require('path')
 const toml = require('toml')
 const yaml = require('yamljs')
-const Dotenv = require('dotenv-webpack');
 
 
 
@@ -99,9 +98,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './public/index.html'
         }),
-        new Dotenv({
-            ignoreStub: true
-        })
+        
 
     ]
 }
