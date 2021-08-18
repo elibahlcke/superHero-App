@@ -15,8 +15,7 @@ import {
     } from "reactstrap";
 import { Row, Col, CardGroup } from 'react-bootstrap';
 import Results from './Results';
-import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import Loader from 'react-loader-spinner';
+import Loading from './Loading';
 import "../style/search.css";
 
 const validate = values => {
@@ -28,12 +27,11 @@ const validate = values => {
 
 
 const Search = () => {
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
     const [result, setResult] = useState([]);
     let results = [];
 
     function sendData() {
-        setIsLoading(true)
         let name = formik.values.search;
         axios.get('https://superheroapi.com/api/10158491823203845/search/' + name, ).catch(function (error) {
     alert(error);
@@ -43,8 +41,9 @@ const Search = () => {
         results.push(response['data']['results']);
         results = [...results[0]];
         console.log(results);
-        setIsLoading(false);
         setResult(results);
+        setIsLoading(false);
+
 
         } else if(response['data']['response'] === 'error'){
             alert('There is no character matching your search');
@@ -57,12 +56,14 @@ const Search = () => {
         },
         validate,
         onSubmit: values => {
-            sendData();
+        setIsLoading(true);
 
+            sendData();
         },
     });
     return ( 
         <>
+
         <Container className="p-5">       
             <Form onSubmit={formik.handleSubmit}>
             <FormGroup>
@@ -99,12 +100,8 @@ const Search = () => {
             </CardGroup>
           </div>
         ) : (
-            <Loader 
-        type="Rings"
-        color="#FFFFFF"
-        height={100}
-        width={100}
-        timeout={3000} />
+            
+            <Loading />
         )}
             </Container>
             </>
