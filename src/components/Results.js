@@ -10,7 +10,7 @@ const Results = ({ name, image, id, biography}) => {
 
   function findChar() {
 
-        axios.get('https://superheroapi.com/api/10158491823203845/' + id, ).catch(function (error) {
+        axios.get(process.env.RESULT_URL + id, ).catch(function (error) {
     alert(error);
     }).then(function (response) {
         console.log(response);

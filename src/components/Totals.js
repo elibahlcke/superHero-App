@@ -43,6 +43,8 @@ const Totals = ({ team }) => {
          let arraySum = [];
          arraySum.push(heightCm, weightKg)
             setSumHeight(() => arraySum)
+        
+
 
         
     }, [])

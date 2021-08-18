@@ -4,6 +4,9 @@ const json5 = require('json5')
 const path = require('path')
 const toml = require('toml')
 const yaml = require('yamljs')
+const webpack = require('webpack')
+const dotenv = require('dotenv')
+
 
 
 
@@ -98,6 +101,9 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: './public/index.html'
         }),
+        new webpack.DefinePlugin({
+            'process.env': JSON.stringify(dotenv.config().parsed) 
+         })
         
 
     ]

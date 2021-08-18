@@ -33,7 +33,7 @@ const Search = () => {
 
     function sendData() {
         let name = formik.values.search;
-        axios.get('https://superheroapi.com/api/10158491823203845/search/' + name, ).catch(function (error) {
+        axios.get(process.env.API_URL + name, ).catch(function (error) {
     alert(error);
     }).then(function (response) {
         console.log(response);

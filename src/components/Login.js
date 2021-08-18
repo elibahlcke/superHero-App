@@ -29,7 +29,7 @@ const validate = values => {
 function Login() {
     async function sendData() {
         const config = {
-            url: 'http://challenge-react.alkemy.org/',
+            url: process.env.LOG_URL,
             method: 'POST',
             headers: {
                 'Access-Control-Allow-Origin': '*',
