@@ -7,10 +7,14 @@
     "start": "react-scripts start",
     "serve": "serve build",
     "dev": "webpack serve --mode development --open chrome --devtool eval-cheap-module-source-map",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
     "build": "webpack"
+
   },
   "author": "eliana lopez bahlcke",
   "license": "MIT",
+  "homepage": "https://elibahlcke.github.io/superHero-App/",
   "dependencies": {
     "@material-ui/core": "^4.11.4",
     "@material-ui/icons": "^4.11.2",
@@ -38,6 +42,7 @@
     "dotenv": "^10.0.0",
     "dotenv-webpack": "^7.0.3",
     "file-loader": "^6.2.0",
+    "gh-pages": "^3.2.3",
     "html-webpack-plugin": "^5.3.1",
     "json5": "^2.2.0",
     "raw-loader": "^4.0.2",
